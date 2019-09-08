@@ -10,6 +10,7 @@ class cmpny employees {
     char emp_lclty[20];
     long float emp_salary;
   }emps_list[80];
+};
   
 class manager {
   int mngr_id;
