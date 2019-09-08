@@ -1,5 +1,5 @@
 #include<fstream.h>
-#include<time.h>
+#include "customtime.h"
 #include "customer.h"
 #include "driver.h"
 #include "manager.h"
@@ -8,8 +8,7 @@ using namespace std;
 int reg(Customer c)
 {
     fstream f("Customer.dat", ios::binary|ios::in|ios::out|ios::ate), logger("log.txt", ios::in|ios::out|ios::app);
-    time_t now = time(0);
-    char* dt = ctime(&now);
+    char* dt = gettime();
     // Search if already that Customer-username is present or not
     Customer c1;
     int flag=0;
@@ -37,8 +36,7 @@ int reg(Customer c)
 int reg(Driver d)
 {
     fstream f("Driver.dat", ios::binary|ios::in|ios::out|ios::ate), logger("log.txt", ios::in|ios::out|ios::app);
-    time_t now = time(0);
-    char* dt = ctime(&now);
+    char* dt = gettime();
     // Search if already that Driver-username is present or not
     Driver d1;
     int flag=0;
@@ -66,8 +64,7 @@ int reg(Driver d)
 int reg(Manager m)
 {
     fstream f("Manager.dat", ios::binary|ios::in|ios::out|ios::ate), logger("log.txt", ios::in|ios::out);
-    time_t now = time(0);
-    char* dt = ctime(&now);
+    char* dt = gettime();
     // Search if already that Manager-username is present or not
     Manager m1;
     int flag=0;
