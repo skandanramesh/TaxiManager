@@ -23,6 +23,7 @@ public:
         logger.close();
         return 1; // session ended successfully
     }
+    int getProf(){return prof;}
 
 }currentSession;
 
@@ -45,19 +46,22 @@ Session validateUser(char* user, char* pass, int prof)
     return Session(user, prof);
 }
 
-int login()
+int login(char* user, int& prof)
 {
    re:
     cout<<" Login as a 1.customer\n2.manager\n3.Cancel"<<endl;
     int ch;
     cin>>ch;
-    if(!(ch==1||ch==2)) return -1;
+    if(!(ch==1||ch==2)) return 0;
     cout<<"Please enter your Username and password "<<endl;
-    char* user, pass
+    char* pass;
     gets(user);
     gets(pass);
     currentSession = validateUser(user, pass, ch);
-    if(currentSession==nullSession){cout<<"Incorrect username or password. Please try again "<<endl;goto re;}
+    if(currentSession==nullSession)cout<<"Incorrect username or password. Please try again "<<endl;goto re;
+    prof = currentSession.getProf();
+    return 1;
+}
 }
 int logout()
 {
