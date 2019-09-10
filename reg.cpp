@@ -33,6 +33,8 @@ int reg(Customer c)
     logger.close();
     return +1;// Registration success
 }
+/*
+    Driver requirement is pending to be discussed
 int reg(Driver d)
 {
     fstream f("Driver.dat", ios::binary|ios::in|ios::out|ios::ate), logger("log.txt", ios::in|ios::out|ios::app);
@@ -60,7 +62,7 @@ int reg(Driver d)
     logger<<dt<<" Driver Successfully registered user :"<<d1.getUser()<<driver_reg<<endl;
     logger.close();
     return +1;// Registration success
-}
+}*/
 int reg(Manager m)
 {
     fstream f("Manager.dat", ios::binary|ios::in|ios::out|ios::ate), logger("log.txt", ios::in|ios::out);
