@@ -12,11 +12,11 @@ public:
         user = u;
         prof = p;
         stime = gettime();
-        isopen = 1;
+        isOpen = 1;
     }
     int endSession()
     {
-        isopen = 0;
+        isOpen = 0;
         etime = gettime();
         fstream logger("slog.txt", ios::in|ios::out|ios::app);
         logger<<stime<<" to "<<etime<<" username: "<<user<<" prof: "<<prof<<endl;
@@ -65,7 +65,7 @@ int login(char* user, int& prof)
 }
 int logout()
 {
-    if(currentSession==nullSession||currentSession.isopen()==0)
+    if(currentSession==nullSession||currentSession.isOpen()==0)
         return -1;
     currentSession.endSession();
     cout<<"Bye. See you later"<<endl;
