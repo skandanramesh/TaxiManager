@@ -22,7 +22,7 @@ void customerRegister(Customer c = dummy, int rep =0)
 {
         char* usr;
         char* usr;
-        if(rep == 0)c.getInfo();
+        if(rep == 0)c.setInfo();
         else
         {
             cout<<"Please re-enter another username or to cancel type CANCEL"<<endl;gets(usr);
