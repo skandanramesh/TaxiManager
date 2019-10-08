@@ -4,13 +4,11 @@ class Session
 {
     char* stime, etime;
     char* user;
-    int prof; // 1-customer 2-manager
     int isopen; // 0 if session ended 1 if session running
 public:
-    Session(char* u, int p)
+    Session(char* u)
     {
         user = u;
-        prof = p;
         stime = gettime();
         isOpen = 1;
     }
@@ -19,23 +17,19 @@ public:
         isOpen = 0;
         etime = gettime();
         fstream logger("slog.txt", ios::in|ios::out|ios::app);
-        logger<<stime<<" to "<<etime<<" username: "<<user<<" prof: "<<prof<<endl;
+        logger<<stime<<" to "<<etime<<" username: "<<user<<endl;
         logger.close();
         return 1; // session ended successfully
     }
-    int getProf(){return prof;}
 
 }currentSession;
 
-Session nullSession("", -1);
+Session nullSession("");
 
-Session validateUser(char* user, char* pass, int prof)
+Session validateUser(char* user, char* pass)
 {
     fstream f;
-    if(prof == 1)
-    {   f.open("Customer.dat", ios::in|ios::out|ios::binary|ios::ate);}
-    if(prof == 2)
-    {   f.open("Manager.dat", ios::in|ios::out|ios::binary|ios::ate);}
+    f.open("Customer.dat", ios::in|ios::out|ios::binary|ios::ate);}
     f.seekg(0, ios::beg);
     Customer c;
     int flag = 0;
@@ -43,25 +37,24 @@ Session validateUser(char* user, char* pass, int prof)
         if(c.getUser()==user&&c.getPass()==pass)
             flag=1;
     if(flag==0) return nullSession; // incorrect user/pass
-    return Session(user, prof);
+    return Session(user);
 }
 
-int login(char* user, int& prof)
+int login(char* user)
 {
-   re:
-    cout<<" Login as a 1.customer\n2.manager\n3.Cancel"<<endl;
+re:
+    cout<<"1.Login 2.Go Back"<<endl;
     int ch;
     cin>>ch;
-    if(!(ch==1||ch==2)) return 0;
+    if(ch==2)return 0;
     cout<<"Please enter your Username and password "<<endl;
     char* pass;
     gets(user);
     gets(pass);
-    currentSession = validateUser(user, pass, ch);
-    if(currentSession==nullSession)cout<<"Incorrect username or password. Please try again "<<endl;goto re;
-    prof = currentSession.getProf();
+    currentSession = validateUser(user, pass);
+    if(currentSession==nullSession)cout<<"Incorrect username or password. Please try again "<<endl;
+        goto re;
     return 1;
-}
 }
 int logout()
 {
