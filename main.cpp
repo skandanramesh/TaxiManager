@@ -31,7 +31,7 @@ void customerRegister(Customer c = dummy, int rep =0)
                   regStatus = -1;
                    return;
             }
-            c.getUser(usr);
+            c.setUser(usr);
         }
         int regStatus2 = reg(c);
         if(regStatus2==-1)
