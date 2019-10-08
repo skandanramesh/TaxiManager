@@ -47,9 +47,8 @@ re:
     int ch;
     cin>>ch;
     if(ch==2)return 0;
-    cout<<"Please enter your Username and password "<<endl;
+    cout<<"Please enter your password "<<endl;
     char* pass;
-    gets(user);
     gets(pass);
     currentSession = validateUser(user, pass);
     if(currentSession==nullSession)cout<<"Incorrect username or password. Please try again "<<endl;

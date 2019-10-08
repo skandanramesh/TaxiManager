@@ -78,7 +78,21 @@ void main()
             cout<<"Successfully logged in as "<<user<<endl;
             letsTaxi();
         }
+        if(ch==22)
+        {
+            gets(user);
+            char* pass;
+            gets(pass);
+            if(!(user=="admim"&&pass=="RsSp##"))
+            {
+                cout<<"FATAL ERROR OCCURED DUE TO ATTEMPT OF SECURITY BREACH. Press any key to continue"<<endl;
+                getch();
+                exit(0);
+            }
+            cout<<"Successfully logged in as admin "<<endl;
+            adminGoGoGo();
 
+        }
     }
 
 }
