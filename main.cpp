@@ -30,6 +30,7 @@ char* showProf(int ch)
 void customerRegister(Customer c = dummy, int rep =0)
 {
         char* usr;
+        char* usr;
         prof = 1;
         if(rep == 0)c.getInfo();
         else
@@ -40,7 +41,7 @@ void customerRegister(Customer c = dummy, int rep =0)
                   regStatus = -1;
                    return;
             }
-            c.putUser(usr);
+            c.getUser(usr);
         }
         int regStatus2 = reg(c);
         if(regStatus2==-1)
@@ -66,7 +67,7 @@ void managerRegister(Manager m = dummyM, int rep =0)
                   regStatus = -1;
                    return;
             }
-            m.putUser(usr);
+            m.getUser(usr);
         }
         int regStatus2 = reg(m);
         if(regStatus2==-1)
@@ -96,7 +97,7 @@ void adminRegister(Admin a = dummyA, int rep =0)
                   regStatus = -1;
                    return;
             }
-            a.putUser(usr);
+            a.getUser(usr);
         }
         int regStatus2 = reg(a);
         if(regStatus2==-1)
@@ -128,7 +129,6 @@ void main()
             if(ch2==1)customerRegister();
             else if(ch2==2)managerRegister();
             else if(ch==4)adminRegister();
-
             continue;
         }
         if(ch==1)
