@@ -65,7 +65,7 @@ int login(char* user, int& prof)
 }
 int logout()
 {
-    if(currentSession==nullSession||currentSession.isOpen()==0)
+    if(currentSession==nullSession||currentSession.isopen()==0)
         return -1;
     currentSession.endSession();
     cout<<"Bye. See you later"<<endl;
