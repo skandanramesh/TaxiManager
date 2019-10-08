@@ -12,11 +12,15 @@ public:
     getline(dr_name);
     getline>>car_no;
     cin>> dr_no;
-    getline(location)
+    getline(location);
   }
   char* get_location()
   {
     return location;
+  }
+  char* getUser()
+  {
+    return dr_name;
   }
 };
 
