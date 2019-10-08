@@ -36,6 +36,7 @@ int main() {
   if(ch1==2)continue;
   else if(ch1==1)
   {cout<<"
+  }
  }
  getch();
  return 0;
