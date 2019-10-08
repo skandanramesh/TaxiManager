@@ -1,5 +1,10 @@
 #ifndef DRIVER_INCLUDED
 #define DRIVER_INCLUDED
-// Your code here
+
+class driver{
+  char dr_name;
+  char car_no;
+  double dr_no;
+};
 
 #endif
