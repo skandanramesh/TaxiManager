@@ -1,5 +1,9 @@
 #ifndef CUSTOMER_INCLUDED
 #define CUSTOMER_INCLUDED
+#include<iostream.h>
+#include<stdio.h>
+#include<string.h>
+
 class Customer
 {
  char cust_user_name[30];
@@ -24,14 +28,14 @@ class Customer
   {
    cout<<date<<"-"<<month<<"-"<<year<<'\n';
   }
- };
+ }D;
  char cust_address[50];
  public:
- char* getUser(char* usr)
+ char* getUser()
  {
   return cust_user_name;
  }
- char* getPass(char* usr="null")
+ char* getPass()
  {
   return cust_pass;
  }
@@ -46,5 +50,10 @@ class Customer
   cout<<"Enter your address";
   gets(cust_address);
  }
+  void setUser(char* user)
+ {
+  strcpy(cust_user_name,user);
+ }
+
 };
 #endif
