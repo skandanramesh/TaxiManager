@@ -17,9 +17,11 @@ class cmpny employees {
   
 class manager {
   int mngr_id;
+  char mngr_user_name[30];
   char mngr_name[30];
   char mngr_cntrl_lclty[20];
   long float mngr_salary;
+  double mngr_gains;//each trip will have a fair and this is the sum of all the fairs of his drivers//
   driver own_drivers_list[20];
   public:
   void newmngrentry() {
