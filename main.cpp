@@ -98,7 +98,7 @@ void adminRegister(Admin a = dummyA, int rep =0)
             }
             a.putUser(usr);
         }
-        int regStatus2 = reg(c);
+        int regStatus2 = reg(a);
         if(regStatus2==-1)
         {
             cout<<"Username already exists."<<endl;
