@@ -26,6 +26,7 @@ int taxi_booking(customer a)
     fout.close();
     cout<<"Thank You for Using Our Service xD"<<endl;
     d.incRide();
+    a.incRide ();
     return 1;
 }
     
