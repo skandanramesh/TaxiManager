@@ -12,6 +12,7 @@ class Customer
  char cust_name[30];
  char cust_phone_no[15];
  int lastRideRated;
+ int noRides;
  struct Dob
  {
   int year;
@@ -33,13 +34,14 @@ class Customer
  }D;
  char cust_address[50];
  public:
- Customer(){valid=1;}
+ Customer(){valid=1;noRides=0;lastRideRated=1;}
  Customer(int a){valid=-1;}
  int isValid(){return valid;}
  char* getUser()
  {
   return cust_user_name;
  }
+ void incRide (){ noRides++; lastRideRated=0;}
  char* getPass()
  {
   return cust_pass;
