@@ -11,8 +11,9 @@ class Driver{
   unsigned long int dr_no;
   double rating;
   Loc location;
+  int noRides;
 public: 
-  Driver(){location.x=200;location.y=200;}
+  Driver(){location.x=200;location.y=200;noRides=0;}
   Driver(double d){rating=d;}
   void input_data()
   {
@@ -25,6 +26,12 @@ public:
   {
     return location;
   }
+  void printDetails()
+  {
+      cout<<"Name : "<<dr_name<<endl<<"Phone no: "<<dr_phoneno<<endl<<"Vehicle no. : "<<car_no<<endl;
+  }
+  void incRide(){noRides++;}
+  void rate(double r){rating =  ( (noRides-1)*rating + r ) / noRides;}
   char* getUser()
   {
     return dr_name;
