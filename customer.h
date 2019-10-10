@@ -11,6 +11,7 @@ class Customer
  char cust_pass[30];
  char cust_name[30];
  char cust_phone_no[15];
+ int lastRideRated;
  struct Dob
  {
   int year;
