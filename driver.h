@@ -3,19 +3,19 @@
 #include<iostream.h>
 #include<stdio.h>
 class driver{
-  char* dr_name;
-  char* dr_phoneno;
-  char* car_no;
+  char dr_name[30];
+  char dr_phoneno[15];
+  char car_no[10];
   unsigned long int dr_no;
   double rating;
-  char* location;
+  char location[80];
 public: 
   void input_data()
   {
-    getline(dr_name);
-    getline>>car_no;
-    cin>> dr_no;
-    getline(location);
+    gets(dr_name);
+    gets(car_no);
+    cin>>dr_no;
+    gets(location);
   }
   char* get_location()
   {
