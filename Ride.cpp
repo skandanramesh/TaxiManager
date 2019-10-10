@@ -30,3 +30,8 @@ int taxi_booking(customer a)
     return 1;
 }
     
+void rate_ride (Customer c)
+{ 
+    //Todo
+    
+}
