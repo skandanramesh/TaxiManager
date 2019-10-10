@@ -6,6 +6,7 @@
 
 class Customer
 {
+ int valid;
  char cust_user_name[30];
  char cust_pass[30];
  char cust_name[30];
@@ -31,6 +32,9 @@ class Customer
  }D;
  char cust_address[50];
  public:
+ Customer(){valid=1;}
+ Customer(int a){valid=-1;}
+ int isValid(){return valid;}
  char* getUser()
  {
   return cust_user_name;
