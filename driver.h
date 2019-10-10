@@ -13,7 +13,9 @@ class driver{
 public: 
   void input_data()
   {
+    cout<<"Enter your name";
     gets(dr_name);
+    cout<<"Enter your car number":
     gets(car_no);
     cin>>dr_no;
     getLoc(location);
