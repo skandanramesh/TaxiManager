@@ -1,10 +1,13 @@
 #ifndef DRIVER_INCLUDED
 #define DRIVER_INCLUDED
-
+#include<iostream.h>
+#include<stdio.h>
 class driver{
   char* dr_name;
+  char* dr_phoneno;
   char* car_no;
-  double dr_no;
+  unsigned long int dr_no;
+  double rating;
   char* location;
 public: 
   void input_data()
