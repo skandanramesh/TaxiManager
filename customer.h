@@ -37,6 +37,7 @@ class Customer
  Customer(){valid=1;noRides=0;lastRideRated=1;}
  Customer(int a){valid=-1;}
  int isValid(){return valid;}
+ int isLastRideRated (){return lastRideRated;}
  char* getUser()
  {
   return cust_user_name;
