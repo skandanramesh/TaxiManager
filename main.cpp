@@ -11,7 +11,7 @@
 #include "manager.h"
 #include "customtime.h"
 #include "err_codes.h"
-
+#include "rides.h"
 // global variables
     int ch;
     char* user = "";
@@ -44,21 +44,41 @@ void customerRegister(Customer c = dummy, int rep =0)
             regStatus=1;
             }
 }
-void letsTaxi()
+void letsTaxi(Customer c)
 {
     while(1)
     {
-        cout<<"1.Book ride 2..... n.Logout n+1.exit"<<endl;
+        cout<<"1.Book ride 2.Rate a previous ride 3.logout 4.exit"<<endl;
         int ch;
         cin>>ch;
-        if(ch==n) return;
-        if(ch==n+1)exit(0);
+       if(ch==1)
+       {    
+            if(!c.isLastRideRated())
+            {cout<<"Please rate last ride to book a new ride "<<endl;
+             rate_ride(c);
+            }
+             taxi_booking(c);       
+       }
+       if(ch==2)
+       {
+           if(c.isLastRideRated())
+           {  cout<<"All rides already rated"<<endl;
+              continue;
+           }
+            rate_ride(c);
+       }
+        else if(ch==3) return;
+        else if(ch==3+1)exit(0);
     }
+}
+void adminGoGoGo()
+{
+      //Todo 
 }
 
 void main()
 {
-
+   Customer c;
     while(1)
     {
         cout<<"Welcome to Taxi Management System "<<endl;
@@ -73,10 +93,11 @@ void main()
         {
             cout<<"Please enter username "<<endl;
             gets(user);
-            if(!(loginStatus = login(user)))                   // I meant = only. [SOMEONE DONT CHANGE IT TO ==]
-                 continue;                                    // See login.cpp for better understanding
+            c=login(user);
+            if(!c.isValid())                   
+               continue;                                    
             cout<<"Successfully logged in as "<<user<<endl;
-            letsTaxi();
+            letsTaxi(c);
         }
         if(ch==22)
         {
