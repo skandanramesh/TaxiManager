@@ -4,6 +4,7 @@
 #include<string.h>
 #include "driver.h"
 #include "locations.h"
+#include "rides.h"
 int taxi_booking(customer a)
 {
     Loc pl;
@@ -16,7 +17,7 @@ int taxi_booking(customer a)
       getLoc(pl);
     else return 0;
     Driver dr = nearestDriver(pl);
-    if(dr == nullDriver){cout<<"Location currently unservicable"<<endl;return 0'}
+    if(dr == nullDriver){cout<<"Location currently unservicable"<<endl;return 0;}
     cout<<"Booking confirmed. Ride Details :"<<endl;
     Ride r(a, dr);
     r.printDetails();
