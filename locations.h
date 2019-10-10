@@ -1,5 +1,6 @@
 #ifndef LOCATIONS_INCLUDED
 #define LOCATIONS_INCLUDED
+#include<math.h>
 struct Location
 {
   char* locationName;
@@ -14,5 +15,9 @@ double distance(Loc l1, Loc l2)
 {
   return sqrt( pow(l1.x-l2.x,2), pow(l1.y-l2.y), 2);  
 }
-
+void getLoc(Loc* l1)
+{
+  cin.getline(locationName);
+  cin>>l1.x>>l1.y;
+}
 #endif
