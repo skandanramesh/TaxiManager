@@ -8,7 +8,7 @@ struct Location
 };
 typedef Location Loc;
 typedef const Location cLoc;
-const cLoc loc1
+const cLoc ORIGIN("ORIGIN", 0, 0);
 const cLoc loc1{"Anna Nagar",   -10, 0);
 const cLoc loc2{"T Nagar", 10, 0);    
 double distance(Loc l1, Loc l2)
