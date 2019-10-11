@@ -2,7 +2,7 @@
 #define LOCATIONS_INCLUDED
 #include<math.h>
 #include<stdio.h>
-#include<iostream>
+#include<iostream.h>
 struct Location
 {
   char* locationName;
