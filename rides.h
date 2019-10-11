@@ -3,7 +3,6 @@
 #include "customtime.h"
 #include "driver.h"
 #include "customer.h"
-using namespace std;
 class Ride
 {
     private:
