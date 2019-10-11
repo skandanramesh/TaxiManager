@@ -1,10 +1,9 @@
 #ifndef DRIVER_INCLUDED
 #define DRIVER_INCLUDED
-#include<iostream>
+#include<iostream.h>
 #include<stdio.h>
 #include "Locations.h"
 #define MAX_DISTANCE 200
-using namespace std;
 class Driver{
   char dr_name[30];
   char dr_phoneno[15];
