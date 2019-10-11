@@ -1,4 +1,4 @@
-#include<fstream>
+#include<fstream.h>
 #include<stdio.h>
 #include<process.h>
 #include<string.h>
@@ -6,7 +6,6 @@
 #include "customer.h"
 #include "locations.h"
 #include "rides.h"
-using namespace std;
 int taxi_booking(Customer a)
 {
     Loc pl;
