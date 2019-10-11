@@ -6,7 +6,7 @@
 
 
 //Header files
-#include<fstream>
+#include<fstream.h>
 #include "customer.h"
 #include<process.h>
 #include<conio.h>
@@ -23,7 +23,6 @@
     int loginStatus, regStatus;
     Customer dummy;
 // Program
-using namespace std;
 void customerRegister(Customer c = dummy, int rep =0)
 {
         char* usr;
