@@ -1,10 +1,9 @@
-#include<fstream>
+#include<fstream.h>
 #include "customtime.h"
 #include "customer.h"
 #include "driver.h"
 //#include "manager.h"
 //#include "errcodes.h"
-using namespace std;
 int reg(Customer c)
 {
     fstream f("Customer.dat", ios::binary|ios::in|ios::out|ios::ate), logger("log.txt", ios::in|ios::out|ios::app);
