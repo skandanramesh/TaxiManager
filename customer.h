@@ -1,11 +1,10 @@
 #ifndef CUSTOMER_INCLUDED
 #define CUSTOMER_INCLUDED
-#include<iostream>
+#include<iostream.h>
 #include<stdio.h>
 #include<string.h>
 #include "locations.h"
- using namespace std;
-
+ 
 class Customer
 {
  int valid;
