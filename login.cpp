@@ -1,6 +1,5 @@
-#include<fstream>
+#include<fstream.h>
 #include "customtime.h"
-using namespace std;
 class Session
 {
     char* stime, *etime;
