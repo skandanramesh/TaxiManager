@@ -6,21 +6,26 @@
 
 
 //Header files
-#include<fstream.h>
+#include<fstream>
 #include "customer.h"
-#include "manager.h"
+#include<process.h>
+#include<conio.h>
+//#include "manager.h"
 #include "customtime.h"
-#include "err_codes.h"
+//#include "err_codes.h"
 #include "rides.h"
+#include "reg.cpp"
+#include "login.cpp"
+#include "Ride.cpp"
 // global variables
     int ch;
-    char* user = "";
+   // char* user = "";
     int loginStatus, regStatus;
-    Customer dummyC;
+    Customer dummy;
 // Program
+using namespace std;
 void customerRegister(Customer c = dummy, int rep =0)
 {
-        char* usr;
         char* usr;
         if(rep == 0)c.setInfo();
         else
@@ -47,17 +52,18 @@ void customerRegister(Customer c = dummy, int rep =0)
 void letsTaxi(Customer c)
 {
     while(1)
-    {
+    { using namespace std;
+
         cout<<"1.Book ride 2.Rate a previous ride 3.logout 4.exit"<<endl;
         int ch;
         cin>>ch;
        if(ch==1)
-       {    
+       {
             if(!c.isLastRideRated())
             {cout<<"Please rate last ride to book a new ride "<<endl;
              rate_ride(c);
             }
-             taxi_booking(c);       
+             taxi_booking(c);
        }
        if(ch==2)
        {
@@ -73,12 +79,13 @@ void letsTaxi(Customer c)
 }
 void adminGoGoGo()
 {
-      //Todo 
+      //Todo
 }
 
 void main()
 {
    Customer c;
+   init_locs();
     while(1)
     {
         cout<<"Welcome to Taxi Management System "<<endl;
@@ -94,8 +101,8 @@ void main()
             cout<<"Please enter username "<<endl;
             gets(user);
             c=login(user);
-            if(!c.isValid())                   
-               continue;                                    
+            if(!c.isValid())
+               continue;
             cout<<"Successfully logged in as "<<user<<endl;
             letsTaxi(c);
         }

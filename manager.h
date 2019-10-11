@@ -2,7 +2,7 @@
 #define MANAGER_INCLUDED
 
 #include<stdio.h>
-#include<fstream.h>
+#include<fstream>
 
 class cmpny employees {
   manager mngrs_list[20];
@@ -14,7 +14,7 @@ class cmpny employees {
     long float emp_salary;
   }emps_list[80];
 };
-  
+
 class manager {
   int mngr_id;
   char mngr_user_name[30];

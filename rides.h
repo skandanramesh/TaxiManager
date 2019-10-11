@@ -1,6 +1,9 @@
 #ifndef RIDES_INCLUDED
 #define RIDES_INCLUDED
 #include "customtime.h"
+#include "driver.h"
+#include "customer.h"
+using namespace std;
 class Ride
 {
     private:
@@ -12,7 +15,7 @@ class Ride
       {
         c = c2;
         d = d2;
-        bookingTime - getTime();
+        bookingTime - gettime();
       }
       void printDetails()
       {

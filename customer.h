@@ -1,8 +1,10 @@
 #ifndef CUSTOMER_INCLUDED
 #define CUSTOMER_INCLUDED
-#include<iostream.h>
+#include<iostream>
 #include<stdio.h>
 #include<string.h>
+#include "locations.h"
+ using namespace std;
 
 class Customer
 {
@@ -13,6 +15,7 @@ class Customer
  char cust_phone_no[15];
  int lastRideRated;
  int noRides;
+ Location defLoc;
  struct Dob
  {
   int year;
@@ -26,7 +29,7 @@ class Customer
    cin>>month;
    cout<<"Enter year";
    cin>>year;
-  } 
+  }
   void displaydob()
   {
    cout<<date<<"-"<<month<<"-"<<year<<'\n';
@@ -51,17 +54,18 @@ class Customer
  {
   cout<<"Enter your user name";
   gets(cust_user_name);
-  cout<<"Enter a strong password"
+  cout<<"Enter a strong password";
   gets(cust_pass);
   cout<<"Enter your date of birth";
   D.acceptdob();
   cout<<"Enter your address";
   gets(cust_address);
+  getLoc(defLoc);
  }
   void setUser(char* user)
  {
   strcpy(cust_user_name,user);
  }
-
+  Location getLocation(){return defLoc;}
 };
 #endif

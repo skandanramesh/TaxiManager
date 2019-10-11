@@ -1,11 +1,13 @@
-#include<fstream.h>
+#include<fstream>
 #include<stdio.h>
 #include<process.h>
 #include<string.h>
 #include "driver.h"
+#include "customer.h"
 #include "locations.h"
 #include "rides.h"
-int taxi_booking(customer a)
+using namespace std;
+int taxi_booking(Customer a)
 {
     Loc pl;
     cout<<" 1. Pickup from default address \n2.Pickup from different address \n3.Go Back"<<endl;
@@ -17,7 +19,7 @@ int taxi_booking(customer a)
       getLoc(pl);
     else return 0;
     Driver dr = nearestDriver(pl);
-    if(dr == nullDriver){cout<<"Location currently unservicable"<<endl;return 0;}
+    if(dr.isNull()){cout<<"Location currently unservicable"<<endl;return 0;}
     cout<<"Booking confirmed. Ride Details :"<<endl;
     Ride r(a, dr);
     r.printDetails();
@@ -25,13 +27,13 @@ int taxi_booking(customer a)
     fout.write((char*)&r, sizeof(Ride));
     fout.close();
     cout<<"Thank You for Using Our Service xD"<<endl;
-    d.incRide();
+    dr.incRide();
     a.incRide ();
     return 1;
 }
-    
+
 void rate_ride (Customer c)
-{ 
+{
     //Todo
-    
+
 }

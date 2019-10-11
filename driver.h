@@ -1,9 +1,10 @@
 #ifndef DRIVER_INCLUDED
 #define DRIVER_INCLUDED
-#include<iostream.h>
+#include<iostream>
 #include<stdio.h>
 #include "Locations.h"
-#define MAX_DISTANCE 200;
+#define MAX_DISTANCE 200
+using namespace std;
 class Driver{
   char dr_name[30];
   char dr_phoneno[15];
@@ -12,7 +13,7 @@ class Driver{
   double rating;
   Loc location;
   int noRides;
-public: 
+public:
   Driver(){location.x=200;location.y=200;noRides=0;}
   Driver(double d){rating=d;}
   void input_data()
@@ -22,7 +23,7 @@ public:
     cin>>dr_no;
     getLoc(location);
   }
-  Loc get_location()
+  Location get_location()
   {
     return location;
   }
@@ -36,6 +37,8 @@ public:
   {
     return dr_name;
   }
+  int isNull(){return (rating == -1)?1:0;}
+
 };
 const Driver nullDriver(-1);
 Driver nearestDriver(Location pickup)
@@ -48,11 +51,11 @@ Driver nearestDriver(Location pickup)
   select=temp;
   while(fin.read((char*)&temp, sizeof(Driver)))
   {
-    if(distance(temp.get_location(), pickup)<distance(select.get_location(), pickup))
-      select=temp;
+    if(dist(temp.get_location(), pickup)<dist(select.get_location(), pickup))
+     select=temp;
   }
   fin.close();
-  if(distance(pickup, select.get_location())>MAX_DISTANCE)
+  if(dist(pickup, select.get_location())>MAX_DISTANCE)
     return nullDriver; // No near drivers
   return select;
 }

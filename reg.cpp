@@ -1,9 +1,9 @@
-#include<fstream.h>
+#include<fstream>
 #include "customtime.h"
 #include "customer.h"
 #include "driver.h"
-#include "manager.h"
-#include "errcodes.h"
+//#include "manager.h"
+//#include "errcodes.h"
 using namespace std;
 int reg(Customer c)
 {
@@ -20,7 +20,7 @@ int reg(Customer c)
         break;
     }
     if(flag==1){
-        logger<<dt<<"Tried to register "<<c1.getUser()<<cust_already_exist<<endl;
+        logger<<dt<<"Tried to register "<<c1.getUser()<<"usrname_already_exists"<<endl;
         logger.close();
         f.close();
         return -1;    // username already exists
@@ -29,7 +29,7 @@ int reg(Customer c)
     f.seekg(0, ios::end);// move to end to start writing
     f.write((char*)&c, sizeof(c));
     f.close();
-    logger<<dt<<" Successfully registered user :"<<c1.getUser()<<cust_reg<<endl;
+    logger<<dt<<" Successfully registered user :"<<c1.getUser()<<endl;
     logger.close();
     return +1;// Registration success
 }
