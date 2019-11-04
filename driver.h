@@ -65,7 +65,7 @@ void updateDriver(Driver d)
   Driver d2;
   while(f.read((char*)&d2, sizeof(d2)))
   {
-      if(d2==d){
+      if(d2.getUser ()==d).getUser (){
         f.seekg(int(-1*sizeof(d)), ios::cur);
         f.write((char*)&d, sizeof(d));
       }
