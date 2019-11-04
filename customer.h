@@ -44,7 +44,7 @@ class Customer
  {
   return cust_user_name;
  }
- void incRide (){ noRides++; lastRideRated=0;}
+ Customer incRide (){ noRides++; lastRideRated=0;}
  char* getPass()
  {
   return cust_pass;
@@ -67,4 +67,18 @@ class Customer
  }
   Location getLocation(){return defLoc;}
 };
+void updateCustomer(Customer c)
+{
+  fstream f("Customer.dat", ios::binary|ios::in|ios::out|ios::ate);
+  f.seekg(0, ios::beg);
+  Customer c2;
+  while(f.read((char*)&c2, sizeof(c2)))
+  {
+      if(c2==c){
+        f.seekg(int(-1*sizeof(c)), ios::cur);
+        f.write((char*)&c, sizeof(c));
+      }
+  }
+  f.close();
+}
 #endif
