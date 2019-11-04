@@ -10,6 +10,8 @@
 #include "customer.h"
 #include<process.h>
 #include<conio.h>
+#include<string.h>
+#include<stdlib.h>
 //#include "manager.h"
 #include "customtime.h"
 //#include "err_codes.h"
@@ -29,7 +31,10 @@ void customerRegister(Customer c = dummy, int rep =0)
         if(rep == 0)c.setInfo();
         else
         {
-            cout<<"Please re-enter another username or to cancel type CANCEL"<<endl;gets(usr);
+            char str[5];int l= random(5)+1;
+           for(int k=0;k<l;k++)
+              str[k]=char(random(10)+48);
+            cout<<"Please re-enter another username(Try "<<strcat(c.getUser(), str)<<" instead. Or to cancel type CANCEL"<<endl;gets(usr);
             if(strcmp(usr, "CANCEL")==0)
             {
                   regStatus = -1;
@@ -41,7 +46,7 @@ void customerRegister(Customer c = dummy, int rep =0)
         if(regStatus2==-1)
         {
             cout<<"Username already exists."<<endl;
-            register(c);
+            customerRegister(c, rep+1);
         }
         else{
             cout<<"Registration Successful. Now Please login to continue"<<endl;
@@ -85,6 +90,7 @@ void main()
 {
    Customer c;
    init_locs();
+   randomize();
     while(1)
     {
         cout<<"Welcome to Taxi Management System "<<endl;
