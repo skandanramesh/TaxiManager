@@ -56,16 +56,18 @@ void customerRegister(Customer c = dummy, int rep =0)
 void letsTaxi(Customer c)
 {
     while(1)
-    { using namespace std;
-
-        cout<<"1.Book ride 2.Rate a previous ride 3.logout 4.exit"<<endl;
+    {   cout<<"1.Book ride 2.Rate a previous ride 3.logout 4.exit"<<endl;
         int ch;
         cin>>ch;
-       if(ch==1)
-       {
+        if(ch==1)
+        {
             if(!c.isLastRideRated())
-            {cout<<"Please rate last ride to book a new ride "<<endl;
-             rate_ride(c);
+            {
+               cout<<"Please rate last ride to book a new ride. Press c to cancel , any other button to rate and book"<<endl;
+               char cho;
+               getch(cho);
+               if(cho=='c'||cho=='C')continue;
+               rate_ride(c);
             }
              taxi_booking(c);
        }
