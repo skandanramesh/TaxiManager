@@ -30,7 +30,7 @@ public:
   {
       cout<<"Name : "<<dr_name<<endl<<"Phone no: "<<dr_phoneno<<endl<<"Vehicle no. : "<<car_no<<endl;
   }
-  void incRide(){noRides++;}
+  Driver incRide(){noRides++;}
   void rate(double r){rating =  ( (noRides-1)*rating + r ) / noRides;}
   char* getUser()
   {
