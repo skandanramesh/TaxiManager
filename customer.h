@@ -58,8 +58,8 @@ class Customer
   cout<<"Enter your date of birth";
   D.acceptdob();
   cout<<"Enter your address";
-  gets(cust_address);
-  getLoc(defLoc);
+  Loc defLoc;
+  defLoc.getLoc();
  }
   void setUser(char* user)
  {
