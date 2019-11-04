@@ -74,7 +74,7 @@ void updateCustomer(Customer c)
   Customer c2;
   while(f.read((char*)&c2, sizeof(c2)))
   {
-      if(c2==c){
+      if(c2.getUser ()==c.getUser ()){
         f.seekg(int(-1*sizeof(c)), ios::cur);
         f.write((char*)&c, sizeof(c));
       }
