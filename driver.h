@@ -58,4 +58,18 @@ Driver nearestDriver(Location pickup)
     return nullDriver; // No near drivers
   return select;
 }
+void updateDriver(Driver d)
+{
+  fstream f("Driver.dat", ios::binary|ios::in|ios::out|ios::ate);
+  f.seekg(0, ios::beg);
+  Driver d2;
+  while(f.read((char*)&d2, sizeof(d2)))
+  {
+      if(d2==d){
+        f.seekg(int(-1*sizeof(d)), ios::cur);
+        f.write((char*)&d, sizeof(d));
+      }
+  }
+  f.close();
+}
 #endif
