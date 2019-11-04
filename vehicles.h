@@ -18,6 +18,9 @@ class Car :public Vehicle
 {
 public:
    Car(){vehType="Car";}
-   void printDetails (){}
+   void printDetails (){
+   }
+   void getDetails (){
+   }
 };
 #endif
