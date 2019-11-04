@@ -72,4 +72,10 @@ void updateDriver(Driver d)
   }
   f.close();
 }
+void writeDriver(Driver d)
+{
+  ofstream f("Driver.dat",ios::binary);
+  f.write((char*)&d, sizeof(d));
+  f.close();
+}
 #endif
