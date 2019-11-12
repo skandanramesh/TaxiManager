@@ -27,9 +27,10 @@ double dist(Loc l1, Loc l2)
 {
   return sqrt( pow(l1.x-l2.x,2) + pow(l1.y-l2.y, 2));
 }
+
 void getLoc(Loc& l1)
 {
   gets(l1.locationName);
-  std::cin>>l1.x>>l1.y;
+  cin>>l1.x>>l1.y;
 }
 #endif
