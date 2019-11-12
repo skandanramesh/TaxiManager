@@ -39,7 +39,7 @@ public:
         return 1; // session ended successfully
     }
     Customer retCustomer(){return c;}
-    int isNull(){return !(c.isValid());}
+    int isNull(){return (c.isValid()==-1)?1:0;}
 
 };
 
@@ -55,7 +55,7 @@ Session validateUser(char* user, char* pass)
     while(f.read((char*)&c, sizeof(c)))
         if(c.getUser()==user&&c.getPass()==pass)
             flag=1;
-    if(flag==0) {f.close();return nullSession;} // incorrect user/pass
+    if(flag==0) {f.close();return Session(Customer(-1));} // incorrect user/pass
     f.close();
     return Session(c);
 }
@@ -73,8 +73,8 @@ re:
     Session currentSession = validateUser(user, pass);
     if(currentSession.isNull())cout<<"Incorrect username or password. Please try again "<<endl;
         goto re;
-    Customer c=currentSession.retCustomer();
-    return c;
+    return currentSession.retCustomer();
+    
 }
 int logout(Session currentSession)
 {
