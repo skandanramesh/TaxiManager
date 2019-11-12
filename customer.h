@@ -36,7 +36,7 @@ class Customer
  }D;
  char cust_address[50];
  public:
- Customer(){valid=1;noRides=0;lastRideRated=1;}
+ Customer(){valid=-1;}
  Customer(int a){valid=-1;}
  int isValid(){return valid;}
  int isLastRideRated (){return lastRideRated;}
@@ -59,13 +59,14 @@ class Customer
   D.acceptdob();
   cout<<"Enter your address";
   Loc defLoc;
-  defLoc.getLoc();
+  getLoc(defLoc);
  }
   void setUser(char* user)
  {
   strcpy(cust_user_name,user);
  }
   Location getLocation(){return defLoc;}
+ valid=1;noRides=0;lastRideRated=1;
 };
 void updateCustomer(Customer c)
 {
