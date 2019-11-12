@@ -21,20 +21,22 @@
 #include "Ride.cpp"
 // global variables
     int ch;
-   // char* user = "";
+   char* user = "";
     int loginStatus, regStatus;
-    Customer dummy;
 // Program
-void customerRegister(Customer c = dummy, int rep =0)
+void customerRegister(Customer c= Customer() int rep =0)
 {
         char* usr;
+        Customer c;
+   if(rep>5){cout<<"Too many attempts"<<endl;return;}
         if(rep == 0)c.setInfo();
         else
         {
             char str[5];int l= random(5)+1;
            for(int k=0;k<l;k++)
               str[k]=char(random(10)+48);
-            cout<<"Please re-enter another username(Try "<<strcat(c.getUser(), str)<<" instead. Or to cancel type CANCEL"<<endl;gets(usr);
+            cout<<"Please re-enter another username(Try "<<strcat(c.getUser(), str)<<" instead. Or to cancel type CANCEL"<<endl;
+            gets(usr);
             if(strcmp(usr, "CANCEL")==0)
             {
                   regStatus = -1;
@@ -106,6 +108,7 @@ void main()
         if(ch==1)
         {
             cout<<"Please enter username "<<endl;
+        
             gets(user);
             c=login(user);
             if(!c.isValid())
@@ -113,15 +116,14 @@ void main()
             cout<<"Successfully logged in as "<<user<<endl;
             letsTaxi(c);
         }
-        if(ch==22)
+        if(ch==42)
         {
             gets(user);
             char* pass;
             gets(pass);
             if(!(user=="admim"&&pass=="RsSp##"))
             {
-                cout<<"FATAL ERROR OCCURED DUE TO ATTEMPT OF SECURITY BREACH. Press any key to continue"<<endl;
-                getch();
+   
                 exit(0);
             }
             cout<<"Successfully logged in as admin "<<endl;
