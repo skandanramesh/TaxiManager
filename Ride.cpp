@@ -10,7 +10,7 @@ int taxi_booking(Customer a)
 {
    cout<<" 1. Pickup from default address \n2.Pickup from different address \n3.Go Back"<<endl;
    Loc pickup;
-   getLoc(pickup);
+   //////getLoc(pickup);
    int ch;
    cin>>ch;
    if(ch==1)pickup = a.getLocation();
@@ -30,7 +30,7 @@ int taxi_booking(Customer a)
    cout<<"Booking confirmed. Ride Details :"<<endl;
    r.bookRide();
    r.printDetails();
-   cout<<"Thank You for Using Our Service :)"<<endl;
+   cout<<d"Thank You for Using Our Service :)"<<endl;
     
    updateDriver(dr.incRide());
    updateCustomer(a.incRide ());
