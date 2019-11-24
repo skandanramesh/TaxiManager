@@ -20,8 +20,17 @@ Loc ORIGIN, loc1, loc2;
 void init_locs()
 {
     ORIGIN.setLoc("ORIGIN", 0, 0);
-    loc1.setLoc("Anna Nagar", 10, 0);
-    loc2.setLoc("T Nagar", -10, 0);
+    loc1.setLoc("Airport", 0, 0);
+    loc2.setLoc("Alandur", 30, 25);
+    loc3.setLoc("Ashok Nagar", 30, 55);
+    loc4.setLoc("Vadapalani", 30, 70);
+    loc5.setLoc("CMBT", 25, 85);
+    loc6.setLoc("Thirumangalam", 20, 100);
+    loc7.setLoc("Anna nagar",40 , 100);  
+    loc8.setLoc("Kilpauk", 65, 80);
+    loc9.setLoc("Egmore", 90, 90); 
+    loc10.setLoc("Chennai Central", 100, 100);
+    
 }
 double dist(Loc l1, Loc l2)
 {
