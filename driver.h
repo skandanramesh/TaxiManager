@@ -7,7 +7,7 @@
 class Driver{
   char dr_name[30];
   char dr_phoneno[15];
-  char car_no[10];
+  //char car_no[10];
   unsigned long int dr_no;
   double rating;
   Loc location;
@@ -21,10 +21,15 @@ public:
   void input_data()
   {
     gets(dr_name);
-    gets(car_no);
+    //gets(car_no);
     cin>>dr_no;
     getLoc(location);
+    cout<<"1.Car 2.Bike"<<endl;
+    cin>>ch;
+    if(ch==1)
     vptr = new Car();
+    else vptr= new Bike();
+    vptr->getDetails();
   }
   Location get_location()
   {
@@ -32,7 +37,8 @@ public:
   }
   void printDetails()
   {
-      cout<<"Name : "<<dr_name<<endl<<"Phone no: "<<dr_phoneno<<endl<<"Vehicle no. : "<<car_no<<endl;
+      cout<<"Name : "<<dr_name<<endl<<"Phone no: "<<dr_phoneno<<endl;
+      vptr->printVehName();
   }
   Driver incRide(){noRides++;}
   void rate(double r){rating =  ( (noRides-1)*rating + r ) / noRides;}

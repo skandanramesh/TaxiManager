@@ -15,25 +15,7 @@ class Customer
  int lastRideRated;
  int noRides;
  Location defLoc;
- struct Dob
- {
-  int year;
-  int month;
-  int date;
-  void acceptdob()
-  {
-   cout<<"Enter date";
-   cin>>date;
-   cout<<"Enter month number";
-   cin>>month;
-   cout<<"Enter year";
-   cin>>year;
-  }
-  void displaydob()
-  {
-   cout<<date<<"-"<<month<<"-"<<year<<'\n';
-  }
- }D;
+ Date D;
  char cust_address[50];
  public:
  Customer(){valid=-1;noRides=0;}
@@ -57,7 +39,7 @@ class Customer
   cout<<"Enter a strong password";
   gets(cust_pass);
   cout<<"Enter your date of birth";
-  D.acceptdob();
+  D.acceptdate();
   cout<<"Enter your address";
   Loc defLoc;
   getLoc(defLoc);

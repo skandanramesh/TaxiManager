@@ -40,17 +40,17 @@ class Ride
       void printDetails()
       {
         cout<<"Customer Name : "<<c.getUser()<<endl;
-        cout<<"Riding From "<<pickup.getFullLoc()<<" To "<<drop.getFullLoc()<<" On "<<bookingTime<<" with "<<d.getName()<<" On "<<d.getveh()<<endl;
+        cout<<"Riding From "<<pickup.getFullLoc()<<" To "<<drop.getFullLoc()<<" On "<<bookingTime<<" with "<<d.getName()<<" On ";d.getveh();
         cout<<"For an expected fare of "<<fare<<endl;
         cout<<"Driver details :"<<endl;
         d.printDetails();
       }
       void shortDetails(){
-        cout<<"Rided From "<<pickup.getArea()<<" To "<<drop.getArea()<<" On "<<bookingTime<<" with "<<d.getName()<<" On "<<d.getveh()<<endl;
+        cout<<"Rided From "<<pickup.getArea()<<" To "<<drop.getArea()<<" On "<<bookingTime<<" with "<<d.getName()<<" On ";d.getveh();
         cout<<"For a fare of "<<fare<<" Rated :"<<rating<<endl;
       }
       void fullDetails(){
-        cout<<"Rided From "<<pickup.getArea()<<" To "<<drop.getArea()<<" On "<<bookingTime<<" with "<<d.getName()<<" On "<<d.getveh()<<endl;
+        cout<<"Rided From "<<pickup.getArea()<<" To "<<drop.getArea()<<" On "<<bookingTime<<" with "<<d.getName()<<" On ";d.getveh();
         cout<<"For a fare of "<<fare<<" Rated :"<<rating<<endl;
         cout<<"Driver details :"<<endl;
         d.printDetails();
