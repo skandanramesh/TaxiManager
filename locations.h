@@ -6,12 +6,12 @@ struct Location
   char* address;
   int area;
   int x, y;
-  void getLoc()
-{
+  void setLoc()
+  {
   cout<<"Enter address"<<endl;
   gets(address);
   cout<<"Enter area"<<endl;
-  cout<<" 1.Chetpet 2.Kilpauk 3. Nungambakkam 4.T Nagar 5.Guindy 6.Chromepet 7.Tambaram"<<endl;
+  cout<<" 1.Chetpet 2.Kilpauk 3. Nungambakkam 4.T Nagar 5.Guindy 6.Chromepet 7.Tambaram 8.Velacherry"<<endl;
   cin>>area;
   if(c==1){x=y=0;}
   if(c==2){x=y=1;}
@@ -20,11 +20,33 @@ struct Location
   if(c==5){x=4;y=3;}
   if(c==6){x=7;y=4;}
   if(c==7){x=7;y=7;}
-}
+  if(c==8){x=5;y=4;}
+  }
+  void setLoc(int ar, int x2, int y2)
+  {
+      address = "";
+      area = ar;
+      x= x2;
+      y= y2;
+  }
+  char* getArea()
+  {
+    if(c==1)return "Chetpet";
+    if(c==2)return "Kilpauk";
+    if(c==3)return "Nungambakkam";
+    if(c==4)return "T Nagar";
+    if(c==5)return "Guindy";
+    if(c==6)return "Chromepet";
+    if(c==7)return "Tamabram";
+    if(C==8)return "Velacherry";
+  }
+  char* getFullLoc(){return address;}
 };
 typedef Location Loc;
+
 double distance(Loc l1, Loc l2)
 {
-  return sqrt( pow(l1.x-l2.x,2), pow(l1.y-l2.y), 2);  
+  return sqrt( pow(l1.x-l2.x,2), pow(l1.y-l2.y), 2);
 }
+
 #endif

@@ -19,6 +19,7 @@
 #include "reg.cpp"
 #include "login.cpp"
 #include "Ride.cpp"
+#include "support.cpp"
 // global variables
     int ch;
    char* user = "";
@@ -55,10 +56,11 @@ void customerRegister(Customer c= Customer() int rep =0)
             regStatus=1;
             }
 }
-void letsTaxi(Customer c)
+void letsTaxi(Session s)
 {
+    Customer c= s.retCustomer();
     while(1)
-    {   cout<<"1.Book ride 2.Rate a previous ride 3.logout 4.exit"<<endl;
+    {   cout<<"1.Book ride 2.Rate a previous ride 3.View previous rides. 4.logout 5.exit"<<endl;
         int ch;
         cin>>ch;
         if(ch==1)
@@ -81,20 +83,22 @@ void letsTaxi(Customer c)
            }
             rate_ride(c);
        }
-        else if(ch==3) return;
-        else if(ch==3+1)exit(0);
+        else if(ch==3)support(c);
+        else if(ch==4) {logout(s);return;}
+        else if(ch==4+1)exit(0);
     }
 }
 void adminGoGoGo()
 {
-      //Todo
+      cout<<"
 }
 
 void main()
 {
    Customer c;
-   init_locs();
+  // init_locs();
    randomize();
+   Session s;
     while(1)
     {
         cout<<"Welcome to Taxi Management System "<<endl;
@@ -108,13 +112,14 @@ void main()
         if(ch==1)
         {
             cout<<"Please enter username "<<endl;
-        
+
             gets(user);
-            c=login(user);
+            s=login(user);
+            Customer c = s.retCustomer();
             if(!c.isValid())
                continue;
             cout<<"Successfully logged in as "<<user<<endl;
-            letsTaxi(c);
+            letsTaxi(s);
         }
         if(ch==42)
         {
@@ -123,7 +128,7 @@ void main()
             gets(pass);
             if(!(user=="admim"&&pass=="RsSp##"))
             {
-   
+
                 exit(0);
             }
             cout<<"Successfully logged in as admin "<<endl;

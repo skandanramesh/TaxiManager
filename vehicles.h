@@ -4,7 +4,7 @@ class Vehicle
 {
 protected:
    char* vno, rcno;
-   date insRenewal;   
+   date insRenewal;
    double basic;
    char* modelname;
    char* manu;
@@ -13,6 +13,7 @@ protected:
   public:
      virtual void printDetails ()=0; // pure virtual fn
      virtual void getDetails ()=0;
+     virtual void printVehName()=0;
 };
 class Car :public Vehicle
 {
@@ -22,5 +23,6 @@ public:
    }
    void getDetails (){
    }
+   void printVehName(){}
 };
 #endif

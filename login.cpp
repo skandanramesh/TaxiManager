@@ -8,13 +8,7 @@ class Session
     public:
     int isOpen; // 0 if session ended 1 if session running
 public:
-   /* Session(char* u)
-    {
-        user = u;
-        stime = gettime();
-        isOpen = 1;
-    }
-    */
+    Session(){}
     Session(Customer c2)
     {
         c = c2;
@@ -26,14 +20,7 @@ public:
         isOpen = 0;
         etime = gettime();
         fstream logger("slog.txt", ios::in|ios::out|ios::app);
-      //  logger<<"Hi";
         int i=0;
-     /*   while(stime[i])logger<<stime[i++];
-        logger<<" to ";
-        i=0;
-        while(etime[i])logger<<etime[i++];
-        logger<<" username: "<<c.getUser()<<endl;
-    */
         logger<<stime<<" to "<<etime<<" username: "<<c.getUser()<<endl;
         logger.close();
         return 1; // session ended successfully
@@ -60,7 +47,7 @@ Session validateUser(char* user, char* pass)
     return Session(c);
 }
 
-Customer login(char* user)
+Session login(char* user)
 {
 re:
     cout<<"1.Login 2.Go Back"<<endl;
@@ -73,8 +60,8 @@ re:
     Session currentSession = validateUser(user, pass);
     if(currentSession.isNull())cout<<"Incorrect username or password. Please try again "<<endl;
         goto re;
-    return currentSession.retCustomer();
-    
+    return currentSession;
+
 }
 int logout(Session currentSession)
 {

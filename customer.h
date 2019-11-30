@@ -4,7 +4,7 @@
 #include<stdio.h>
 #include<string.h>
 #include "locations.h"
- 
+
 class Customer
 {
  int valid;
@@ -36,15 +36,16 @@ class Customer
  }D;
  char cust_address[50];
  public:
- Customer(){valid=-1;}
- Customer(int a){valid=-1;}
+ Customer(){valid=-1;noRides=0;}
+ Customer(int a){valid=-1;noRides=0;}
  int isValid(){return valid;}
- int isLastRideRated (){return lastRideRated;}
+ int isLastRideRated (){return (noRides)?lastRideRated:1;}
+ void rated(){lastRideRated=1;}
  char* getUser()
  {
   return cust_user_name;
  }
- Customer incRide (){ noRides++; lastRideRated=0;}
+ Customer incRide (){ noRides++;}
  char* getPass()
  {
   return cust_pass;

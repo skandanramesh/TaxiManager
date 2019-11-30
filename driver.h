@@ -12,15 +12,19 @@ class Driver{
   double rating;
   Loc location;
   int noRides;
+  Vehicle *vptr;
 public:
   Driver(){location.x=200;location.y=200;noRides=0;}
   Driver(double d){rating=d;}
+  char* getName(){return dr_name;}
+  void getveh(){vptr->printVehname();}
   void input_data()
   {
     gets(dr_name);
     gets(car_no);
     cin>>dr_no;
     getLoc(location);
+    vptr = new Car();
   }
   Location get_location()
   {
