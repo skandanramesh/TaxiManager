@@ -90,9 +90,22 @@ void letsTaxi(Session s)
 }
 void adminGoGoGo()
 {
-      cout<<"
+      cout<<"Welcome to Management Portal."<<endl;
 }
-
+void intro()
+{
+    cout<<"______________________________________________________________________________________________________"<<endl;
+    cout<<"------------------------------------Welcome to Taxi Management System---------------------------------"<<endl;
+    cout<<"_______________________________________________________________________________________________________"<<endl;
+cout<<"                                @\n"
+"               (__)    (__) _____/\n"
+"            /| (oo) _  (oo)/----/_____    *\n"
+"  _o\______/_|\_\/_/_|__\/|____|//////== *- *  * -\n"
+" /_________   \   00 |   00 |       /== -* * -\n"
+"[_____/^^\_____\_____|_____/^^\_____]     *- * -\n"
+"      \__/                 \__/"<<endl;
+   cout<<"What do you wish to do"<<endl;
+}
 void main()
 {
    Customer c;
@@ -101,7 +114,7 @@ void main()
    Session s;
     while(1)
     {
-        cout<<"Welcome to Taxi Management System "<<endl;
+        intro();
         cout<<"1.Login\t 2.Register\t 3.Exit"<<endl;
         cin>>ch;
         if(ch==2)
