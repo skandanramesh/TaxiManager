@@ -1,22 +1,23 @@
 #ifndef CUSTOMER_INCLUDED
 #define CUSTOMER_INCLUDED
-#include<iostream.h>
+#include<fstream>
 #include<stdio.h>
 #include<string.h>
 #include "locations.h"
-
+#include "dates.h"
+using namespace std;
 class Customer
 {
  int valid;
- char cust_user_name[30];
- char cust_pass[30];
- char cust_name[30];
- char cust_phone_no[15];
+ char cuser[30];
+ char cpass[30];
+ char cname[30];
+ char cpno[15];
  int lastRideRated;
  int noRides;
  Location defLoc;
  Date D;
- char cust_address[50];
+ //char c[50];
  public:
  Customer(){valid=-1;noRides=0;}
  Customer(int a){valid=-1;noRides=0;}
@@ -25,31 +26,38 @@ class Customer
  void rated(){lastRideRated=1;}
  char* getUser()
  {
-  return cust_user_name;
+  return cuser;
  }
  Customer incRide (){ noRides++;}
  char* getPass()
  {
-  return cust_pass;
+  return cpass;
  }
  void setInfo()
  {
-  cout<<"Enter your user name";
-  gets(cust_user_name);
-  cout<<"Enter a strong password";
-  gets(cust_pass);
-  cout<<"Enter your date of birth";
+     cin.ignore(1000, '\n');
+  cout<<"Enter your user name"<<endl;
+  cin.getline(cuser, 30);
+  cout<<"Enter your name"<<endl;
+  cin.getline(cname, 30);
+  while(1)
+  {
+    cout<<"Enter a strong password(8 to 30 characters)"<<endl;
+    cin.getline(cpass, 30);
+  }
+  cout<<"Enter your date of birth"<<endl;;
   D.acceptdate();
-  cout<<"Enter your address";
-  Loc defLoc;
-  getLoc(defLoc);
+  //cout<<"Enter your address";
+  defLoc.setLoc();
+  valid =1;
  }
+ void printall(){cout<<"Printing "<<cuser<<" "<<cname<<endl;}
   void setUser(char* user)
  {
-  strcpy(cust_user_name,user);
+  strcpy(cuser, user);
  }
   Location getLocation(){return defLoc;}
- valid=1;noRides=0;lastRideRated=1;
+
 };
 void updateCustomer(Customer c)
 {

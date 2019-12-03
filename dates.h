@@ -7,16 +7,16 @@ struct Date
   int date;
   void acceptdate()
   {
-   cout<<"Enter date";
+   cout<<"Enter date: ";
    cin>>date;
-   cout<<"Enter month number";
+   cout<<"Enter month number: ";
    cin>>month;
-   cout<<"Enter year";
+   cout<<"Enter year: ";
    cin>>year;
   }
   void displaydate()
   {
-   cout<<date<<"-"<<month<<"-"<<year<<'\n';
+   cout<<date<<"/"<<month<<"/"<<year<<'\n';
   }
  };
 

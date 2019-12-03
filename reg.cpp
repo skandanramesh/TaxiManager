@@ -1,4 +1,5 @@
-#include<fstream.h>
+
+#include<fstream>
 #include "customtime.h"
 #include "customer.h"
 #include "driver.h"
@@ -25,10 +26,15 @@ int reg(Customer c)
         return -1;    // username already exists
     }
     // If username is unique => Register
+    f.close();
+    f.open("Customer.dat", ios::binary|ios::in|ios::out|ios::ate);
     f.seekg(0, ios::end);// move to end to start writing
     f.write((char*)&c, sizeof(c));
+    f.seekg(int(-1*sizeof(c)), ios::cur);
     f.close();
-    logger<<dt<<" Successfully registered user :"<<c1.getUser()<<endl;
+    cout<<dt<<"Successfully registered user:"<<c.getUser()<<endl;
+    logger<<dt<<" Successfully registered user :"<<c.getUser()<<endl;
     logger.close();
+
     return +1;// Registration success
 }

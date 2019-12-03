@@ -1,4 +1,4 @@
-#include<fstream.h>
+#include<fstream>
 #include<stdio.h>
 #include<process.h>
 #include<string.h>
@@ -6,6 +6,7 @@
 #include "customer.h"
 #include "locations.h"
 #include "rides.h"
+using namespace std;
 int taxi_booking(Customer a)
 {
    cout<<" 1. Pickup from default address \n2.Pickup from different address \n3.Go Back"<<endl;
@@ -14,23 +15,28 @@ int taxi_booking(Customer a)
    int ch;
    cin>>ch;
    if(ch==1)pickup = a.getLocation();
-   else if(ch==2)pickup.getLoc();
+   else if(ch==2)pickup.setLoc();
    else return 0;
-   Driver dr = nearestDriver(pickup);
-   if(dr.isNull()){cout<<"Location currently unservicable"<<endl;return 0;}
+   cout<<"1.Car 2.Bike"<<endl;
+   int choi;
+   cin>>choi;
+   Driver dr = nearestDriver(pickup, choi);
+   if(dr.isNull()){cout<<"Location/vehicle currently unservicable"<<endl;return 0;}
    cout<<"Enter Drop location"<<endl;
    Loc drop;
-   drop.getLoc();
+   drop.setLoc();
    if(dist(pickup, drop)>10*MAX_DISTANCE)
    {cout<<"Ride distance too big. We aren't servicing very long drives currently. Sorry"<<endl;return 0;}
-   Ride r(a, dr, pickup, drop);
+
+   Ride r(a, dr, pickup, drop, choi);
+
    cout<<"Confirm Booking?(0-no. any other number-yes)"<<endl;
    cin>>ch;
    if(ch==0)return 0;
    cout<<"Booking confirmed. Ride Details :"<<endl;
    r.bookRide();
    r.printDetails();
-   cout<<d"Thank You for Using Our Service :)"<<endl;
+   cout<<"Thank You for Using Our Service :)"<<endl;
 
    updateDriver(dr.incRide());
    updateCustomer(a.incRide ());
@@ -46,15 +52,19 @@ void rate_ride (Customer c)
     f.seekg(a, ios::cur);
     while(f.read((char*)&dupe, sizeof(dupe)))
     {
-        if(dupe.isRated()==0&&dupe.retCustomer()==c)
+        if(dupe.isRated()==0&&dupe.retCustomer().getUser()==c.getUser())
         {
             dupe.printDetails();
             cout<<"Please rate your ride from 1 to 5 :";
             double r;
             cin>>r;
             while(1)
-            {if((r==1||r==2||r==3||r==4||r==5)!=1){ cout<"Please enter from 1 to 5 only"<<endl; cin>>r;}
-             else break;
+            {
+                if((r==1||r==2||r==3||r==4||r==5)!=1)
+                { cout<<"Please enter from 1 to 5 only"<<endl;
+                  cin>>r;
+                 }
+                else break;
             }
             dupe.rating =r;
             cout<<"Do you wish to Appreciate or complain? : 1.complaints 2.compliments 3.skip";
@@ -70,7 +80,7 @@ void rate_ride (Customer c)
             f.write((char*)&dupe, sizeof(dupe));
             break;
         }
-`       f.seekg(2*a, ios::cur);
+       f.seekg(2*a, ios::cur);
     }
     f.close();
 

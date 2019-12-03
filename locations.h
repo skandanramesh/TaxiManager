@@ -1,18 +1,22 @@
 #ifndef LOCATIONS_INCLUDED
 #define LOCATIONS_INCLUDED
 #include<math.h>
+#include<iostream>
+using namespace std;
 struct Location
 {
-  char* address;
+  char address[300];
   int area;
   int x, y;
   void setLoc()
   {
   cout<<"Enter address"<<endl;
-  gets(address);
+  cin.ignore();
+  cin.getline(address, 300);
   cout<<"Enter area"<<endl;
   cout<<" 1.Chetpet 2.Kilpauk 3. Nungambakkam 4.T Nagar 5.Guindy 6.Chromepet 7.Tambaram 8.Velacherry"<<endl;
   cin>>area;
+  int c = area;
   if(c==1){x=y=0;}
   if(c==2){x=y=1;}
   if(c==3){x=1;y=2;}
@@ -24,13 +28,14 @@ struct Location
   }
   void setLoc(int ar, int x2, int y2)
   {
-      address = "";
+      strcpy(address, "");
       area = ar;
       x= x2;
       y= y2;
   }
   char* getArea()
   {
+      int c = area;
     if(c==1)return "Chetpet";
     if(c==2)return "Kilpauk";
     if(c==3)return "Nungambakkam";
@@ -38,15 +43,15 @@ struct Location
     if(c==5)return "Guindy";
     if(c==6)return "Chromepet";
     if(c==7)return "Tamabram";
-    if(C==8)return "Velacherry";
+    if(c==8)return "Velacherry";
   }
   char* getFullLoc(){return address;}
 };
 typedef Location Loc;
 
-double distance(Loc l1, Loc l2)
+double dist(Loc l1, Loc l2)
 {
-  return sqrt( pow(l1.x-l2.x,2), pow(l1.y-l2.y), 2);
+  return sqrt( pow((l1.x-l2.x),2)+ pow((l1.y-l2.y), 2));
 }
 
 #endif
