@@ -6,11 +6,11 @@
 
 
 //Header files
-#include<fstream>
+#include<fstream.h>
 #include "customer.h"
 #include<process.h>
 #include<conio.h>
-#include<string>
+#include<string.h>
 #include<stdlib.h>
 //#include "manager.h"
 #include "customtime.h"
@@ -107,9 +107,9 @@ void adminGoGoGo()
 }}
 void intro()
 {
-    cout<<"_____________________________________________________________________________"<<endl;
+    cout<<"-----------------------------------------------------------------------------"<<endl;
     cout<<"------------------------Welcome to Taxi Management System--------------------"<<endl;
-    cout<<"_____________________________________________________________________________"<<endl;
+    cout<<"-----------------------------------------------------------------------------"<<endl;
 cout<<"                                @\n"
 "               (__)    (__) _____/\n"
 "            /| (oo) _  (oo)/----/_____    *\n"
