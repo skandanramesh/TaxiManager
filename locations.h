@@ -1,8 +1,7 @@
 #ifndef LOCATIONS_INCLUDED
 #define LOCATIONS_INCLUDED
 #include<math.h>
-#include<iostream>
-using namespace std;
+#include<iostream.h>
 struct Location
 {
   char address[300];
