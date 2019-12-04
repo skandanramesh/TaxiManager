@@ -4,7 +4,7 @@
 #include "driver.h"
 #include "manager.h"
 //#include "errcodes.h"
-using namespace std;
+
 int admin(Driver d)
 {
     fstream f("Driver.dat", ios::binary|ios::in|ios::out|ios::ate), logger("log.txt", ios::in|ios::out|ios::app);
