@@ -5,7 +5,7 @@
 #include "rides.h"
 #include "locations.h"
 #include<fstream>
-using namespace std;
+
 void support(Customer c)
 {
     cout<<"How many last rides do you wish to search from"<<endl;
