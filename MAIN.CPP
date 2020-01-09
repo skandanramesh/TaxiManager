@@ -96,7 +96,7 @@ void adminGoGoGo()
     {
 
 
-      cout<<"1.Add Drivers. 2.Show Drivers 3.See Customer detals.4.Read register log. 5. Read Session logs 6.Reset Records. 7.Logout"<<endl;
+      cout<<"1.Add Drivers. 2.Show Drivers 3.See Customer details.4.Read register log. 5. Read Session logs 6.Reset Records. 7.Logout"<<endl;
       int cho;
       cin>>cho;
       if(cho==1)addDrivers();
@@ -104,7 +104,7 @@ void adminGoGoGo()
       else if(cho==3)customDetails();
       else if(cho==4)readLog();
       else if(cho==5)readSlog();
-      else if(cho==5){
+      else if(cho==6){
 	cout<<"You are about to permanently delete all records. Enter admin password to continue or any other word to cancel"<<endl;
 	char str[50];
 	cin.getline(str, 50);
